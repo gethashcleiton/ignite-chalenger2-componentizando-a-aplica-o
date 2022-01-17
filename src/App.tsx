@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 
-import { Button } from "./components/Button";
-import { MovieCard } from "./components/MovieCard";
-
 import { SideBar } from "./components/SideBar";
 import { Content } from "./components/Content";
 
@@ -27,19 +24,9 @@ export function App() {
     {} as GenreResponseProps
   );
 
-  // useEffect(() => {
-  //   api.get<GenreResponseProps[]>("genres").then((response) => {
-  //     setGenres(response.data);
-  //   });
-  // }, []);
-
   useEffect(() => {
-    // api.get<MovieProps[]>(`movies/?Genre_id=${selectedGenreId}`).then(response => {
-    //   setMovies(response.data);
-    // });
-
     api.get<GenreResponseProps>(`genres/${selectedGenreId}`).then(response => {
-      setSelectedGenre(response.data);
+      setSelectedGenre(response.data)
     })
   }, [selectedGenreId]);
 
